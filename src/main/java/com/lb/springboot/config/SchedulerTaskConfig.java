@@ -36,7 +36,7 @@ public class SchedulerTaskConfig implements SchedulingConfigurer {
     public Executor schedulerTheadPool() {
         // 核心线程数等于运行时可用线程
         int coreSize = Runtime.getRuntime().availableProcessors();
-        return new ScheduledThreadPoolExecutor(2, new ThreadFactory() {
+        return new ScheduledThreadPoolExecutor(coreSize, new ThreadFactory() {
             @Override
             public Thread newThread(Runnable runnable) {
                 return new Thread(runnable, "scheduler-task");
@@ -48,5 +48,4 @@ public class SchedulerTaskConfig implements SchedulingConfigurer {
             }
         });
     }
-
 }

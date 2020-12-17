@@ -17,6 +17,5 @@ public class MyTask {
     @Scheduled(initialDelay = 5000,fixedDelay = 1000)
     public void execute(){
         LOGGER.info("==============执行定时任务 initialDelay & fixedDelay ==============");
-        throw new RuntimeException("kksk");
     }
 }
